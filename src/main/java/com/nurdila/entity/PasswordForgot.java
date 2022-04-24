@@ -1,7 +1,5 @@
 package com.nurdila.entity;
 
-package com.hendisantika.entity;
-
 import lombok.Data;
 
 import javax.validation.constraints.Email;
