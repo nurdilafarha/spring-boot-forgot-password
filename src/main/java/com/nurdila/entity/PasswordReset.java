@@ -1,6 +1,6 @@
 package com.nurdila.entity;
 
-import com.hendisantika.validator.PasswordConfirmation;
+import com.nurdila.validator.PasswordConfirmation;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
