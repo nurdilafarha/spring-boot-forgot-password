@@ -5,6 +5,7 @@ import com.nurdila.repository.RoleRepository;
 import com.nurdila.repository.UserRepository;
 import com.nurdila.service.framework.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.authentication.AccountStatusUserDetailsChecker;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -37,5 +38,12 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("Email not found!"));
         new AccountStatusUserDetailsChecker().check(user);
         return user;
+    }
+
+    @Override
+    @Modifying
+    public void updatePassword(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 }
