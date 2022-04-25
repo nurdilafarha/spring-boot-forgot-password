@@ -1,5 +1,6 @@
 package com.nurdila.service.implementation;
 
+import com.nurdila.entity.User;
 import com.nurdila.repository.RoleRepository;
 import com.nurdila.repository.UserRepository;
 import com.nurdila.service.framework.UserService;
@@ -20,5 +21,10 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 }
