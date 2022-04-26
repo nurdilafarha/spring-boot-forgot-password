@@ -95,4 +95,9 @@ public class ForgotPasswordController {
                 Locale.ENGLISH));
         return "redirect:/forgot-password";
     }
+
+    @ModelAttribute("passwordForgot")
+    public PasswordForgot passwordForgot() {
+        return new PasswordForgot();
+    }
 }
