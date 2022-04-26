@@ -98,6 +98,7 @@ public class ForgotPasswordController {
 
     @ModelAttribute("passwordForgot")
     public PasswordForgot passwordForgot() {
+
         return new PasswordForgot();
     }
 }
